@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="MensionD" representedClassName=".MensionD" syncable="YES" codeGenerationType="category">
+        <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="keyword" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="searchTerm" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tweets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TweetD" inverseName="mensions" inverseEntity="TweetD" syncable="YES"/>
+    </entity>
+    <entity name="TweetD" representedClassName=".TweetD" syncable="YES" codeGenerationType="category">
+        <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unique" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="mensions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MensionD" inverseName="tweets" inverseEntity="MensionD" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="TweetD" positionX="189" positionY="-639" width="128" height="103"/>
+        <element name="MensionD" positionX="-9" positionY="-423" width="128" height="118"/>
+    </elements>
+</model>
