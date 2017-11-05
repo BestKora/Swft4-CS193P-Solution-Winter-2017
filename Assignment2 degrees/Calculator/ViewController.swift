@@ -14,11 +14,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var history: UILabel!
     @IBOutlet weak var tochka: UIButton!{
         didSet {
-            tochka.setTitle(decimalSeparator, for: UIControlState())
+            tochka.setTitle(decimalSeparator, for: .normal)
         }
     }
     
     @IBOutlet weak var displayM: UILabel!
+    @IBOutlet weak var radians: UIButton!{
+        didSet {
+            let title = brain.isRadian ? "radians" : "degrees"
+            radians.setTitle(title, for: .normal)
+        }
+    }
     
     let decimalSeparator = formatter.decimalSeparator ?? "."
     var userInTheMiddleOfTyping = false
@@ -125,4 +131,12 @@ class ViewController: UIViewController {
             
         }
     }
+    
+    @IBAction func setDegrees(_ sender: UIButton) {
+        brain.isRadian = !brain.isRadian
+        radians.setTitle(brain.isRadian ? "radians" : "degrees", for: .normal)
+        displayResult = brain.evaluate(using: variableValues)
+    }
+    
+    
 }
